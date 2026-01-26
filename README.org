@@ -19,6 +19,9 @@
 - =M= - "Alt" or "Option" key
 - =S= - "Super" or "Command" key
 - =SPC= - "Space" key
+* Modal Editing
+- =ESC= brings from insert Mode to Normal Mode. Cursor shape is a letter wide block. The indicator in the status line is =N=
+- =i= changes to Insert Mode from Normal Mode. The cursor changes to a small vertical line. The status line indicater is =I=
 * General
 - =SPC f s= for saving the current file
 - =SPC := for entering a command
