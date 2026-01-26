@@ -25,6 +25,8 @@
 ** Visual mode
 - =V= selects complete lines. Background turns to grey
 - =v= allows you to select rectangular blocks in a text, grey background
+** Operator-pending state
+Special state entered after launching an operator, but before specifying the corresponding motion or text object. Cursor shape changes to a little square. Indicator =O=. Example: Start a deletion with =d= evil waites for text object.
 The selected region can be copied, deleted or replaced with special commands.
 * General
 - =SPC f s= for saving the current file
