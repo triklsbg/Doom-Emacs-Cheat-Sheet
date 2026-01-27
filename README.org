@@ -319,6 +319,7 @@ The selected region can be copied, deleted or replaced with special commands.
 * Capturing
 - =SPC X= to capture (the new thing gets captured to a single file but that's fine since we can easily refile it.)
 - =SPC m r r= to refile
+- =!!<shell-command>= replaces the current line with the output of /shell-command/. 
 * Org Roam
 These keybindings only work after installing org-roam. To install org-roam edit your =init.el= file and add =(org +roam2)= in its designated place. Watch [[https://www.youtube.com/watch?v=AyhPmypHDEw][this video]] to understand what org-roam is.
 
