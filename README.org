@@ -74,13 +74,13 @@ The selected region can be copied, deleted or replaced with special commands.
 * Buffers, Windows and Basic Navigation
 ** Buffers
 - Buffers are a special concept in emacs they can be terminals, files,
-  directories, etc
+  directories. So called system buffers have * (earmuffs) around their name.
 - =SPC b b= to open another buffer
   - workspace buffer
-- =SPC b B= you can see all the buffer
-- =SPC ,= to switch buffers (it's an alias)
-- =SPC SHIFT ,= to switch to all buffers
-- =SPC b X= You can create a scratch buffer
+- =SPC b B= you can see all (ordinary-, system-, workspace-) buffers
+- =SPC ,= to switch buffers in the current? workspace
+# - =SPC SHIFT ,= to switch to all buffers
+- =SPC b X= Create or revisit a persistant =*doom:scratch*= buffer
 - =SPC b s= to save and name it
 ** Windows
 - Windows are panes in your screen
