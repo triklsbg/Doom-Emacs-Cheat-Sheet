@@ -1,4 +1,56 @@
+
 #+TITLE: The Ultimate Doom Emacs Cheatsheet
+#+OPTIONS: toc:1  ; 2 level headlines, for exported files (= toc-usecase 1)
+
+# (toc-usecase 2) a toc inside the org file managed by toc-org package/feature
+#+TOC: headlines 1
+
+* Contents    :TOC:
+- [[#a-few-tips-for-emacs-newbies][A few tips for Emacs newbies]]
+- [[#command-abbreviations][Command Abbreviations]]
+- [[#modal-editing][Modal Editing]]
+  - [[#visual-mode][Visual mode]]
+  - [[#operator-pending-state][Operator-pending state]]
+- [[#general][General]]
+- [[#projects-with-projectile][Projects with Projectile]]
+- [[#dired-the-emacs-builtin-file-explorer][*Dired* the emacs builtin file explorer]]
+- [[#buffers-windows-and-basic-navigation][Buffers, Windows and Basic Navigation]]
+  - [[#buffers][Buffers]]
+  - [[#windows][Windows]]
+  - [[#workspaces][Workspaces]]
+- [[#installing-packages-using-org-super-agenda-as-an-example][Installing Packages using org-super-agenda as an example]]
+- [[#quick-horizontal-movements-with-evil-snipe][Quick, horizontal movements with evil-snipe]]
+  - [[#inline-navigation][Inline navigation]]
+  - [[#long-distance-navigation-inside-the-file][Long distance navigation inside the file]]
+- [[#multiple-cursor-in-emacs-with-evil-multiedit][Multiple cursor in Emacs with evil-multiedit]]
+- [[#org-mode][Org Mode]]
+  - [[#basics][Basics]]
+  - [[#links-hyperlinks-and-more][Links, Hyperlinks and more]]
+  - [[#defining-custom-link-types][Defining custom Link Types]]
+  - [[#linking-to-words--bookmarks][Linking to words & Bookmarks]]
+  - [[#code-snippets--babel][Code Snippets & Babel]]
+  - [[#task-management][Task Management]]
+  - [[#lists][Lists]]
+  - [[#items-checkboxessubtasks][Items (Checkboxes/Subtasks)]]
+  - [[#misc][Misc]]
+- [[#magit][Magit]]
+  - [[#git-commit-flow-in-more-detail][Git Commit Flow in More Detail]]
+  - [[#magit-with-forge-for-issuing-pull-requests---emacs][Magit with Forge for Issuing Pull Requests - Emacs]]
+- [[#lsp-mode][LSP-Mode]]
+  - [[#lsp-related][LSP related]]
+  - [[#while-coding][While coding]]
+- [[#terminal][Terminal]]
+- [[#file-tree][File Tree]]
+- [[#capturing][Capturing]]
+  - [[#output-of-shell-command][Output of shell command]]
+- [[#org-roam][Org Roam]]
+- [[#code-folding][Code Folding]]
+- [[#pdf-view-mode][pdf-view-mode]]
+  - [[#zoom-and-scroll][Zoom and scroll]]
+- [[#latex][Latex]]
+- [[#bi-directinal-texts-rtl-languages][Bi-directinal texts (RTL languages)]]
+- [[#sources][Sources]]
+- [[#what-to-learn-03][What to learn]]
 
 * A few tips for Emacs newbies
 - Use [[https://www.emacswiki.org/emacs/EmacsClient][EmacsClient]] and set up a daemon. Your Emacs experience will improve *a lot* and you will save a lot of time.
@@ -34,9 +86,10 @@ The selected region can be copied, deleted or replaced with special commands.
 - =SPC q q= to close Emacs
 - =SPC f D= to delete this file
 * Projects with Projectile
-- =SPC p p= to open a project
+A project in the sense of /projectile/ is a directory containing a =.git= repository.
+- =SPC p p= to open an existing project
 - =SPC SPC= to open a file in a project
-- =SPC o p= to open the file explorer
+- =SPC o p= to open the project side bar (file explorer)
 - =SPC o E= to open the shell (eshell) in fullscreen
 - =SPC o e= to open the shell (eshell) in a popup window
 - =SPC f r= recently visited files
@@ -46,7 +99,7 @@ The selected region can be copied, deleted or replaced with special commands.
 - =M-x projectile-discover-projects-in-search-path= to find projects in
   the folder defined by the =projectile-project-search-path= variable
   using Projectile
-* Dired
+* *Dired* the emacs builtin file explorer
 - Dired (Directory Editor) is how you interface with a directory
 - Press =C-x d= to open dired.
 - Use =RET= to go to a folder or open a file.
@@ -97,7 +150,8 @@ The selected region can be copied, deleted or replaced with special commands.
 ** Workspaces
 - =SPC TAB n= New workspace
 - =SPC TAB N= Newly named workspace
-- =SPC TAB [= Previous workspace
+- =SPC TAB .= Switch between known workspaces by name
+- =SPC TAB [= Previous workspace, the tabbar highlights the current workspace
 - =SPC TAB ]= Next workspace
 - =SPC TAB d= Remove workspace
 - =SPC TAB R= Restore last session
@@ -261,13 +315,14 @@ The selected region can be copied, deleted or replaced with special commands.
 - =SPC g g= shows Magit status page
   + Most commands are done from the status page
   + Use tab to expand headlines in the status page
-- =?= in Magit's status page for a nice list of available commands and help, =q= to close this help page
+- =?= in Magit's status page for an overview of available commands and help, =q= to close this help page
 - Open diff view for a file with =TAB=
 - Press =s= under "Unstaged changes" to stage a change
-  + =u= to undo a change
+  + =u= to undo / unstage??? a change
   + =c= to commit
 - =b s= for branch and spinoff to create another branch, rewinding the
   commits you made to master
+- =b c= create a new branch and switch to it
 - =b b= to switch branches
 
 ** Git Commit Flow in More Detail
@@ -278,7 +333,7 @@ The selected region can be copied, deleted or replaced with special commands.
 - =c= to commit, you can =q= to quit the commit screen
 - =P= to push and then =p= to your remote or =u= to a another remote
 ** Magit with Forge for Issuing Pull Requests - Emacs
-- Forge is installed in emacs doom
+- Forge is installed in emacs doom via /(magit +forge)/ flag in init.el
 - =@= for forge
 - Set up forge with =M-x forge-pull=
   - the first time you will get a token from Github
@@ -314,6 +369,7 @@ The selected region can be copied, deleted or replaced with special commands.
 - =SPC o T= for opening vterm
 - =SPC o t= for opening vterm in a popup window
 * File Tree
+Think about /(dired +dirvish)/ flag
 - Set up neotree or treemacs in your init.el file.
 - =SPC o p= for opening neotree or treemacs
 * Capturing
